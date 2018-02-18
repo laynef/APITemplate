@@ -2,10 +2,10 @@
     "name": "api-template",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "test": "node ./tests/index.js",
+        "test": "node tests/index.js",
         "lint": "eslint -c .eslintrc.js . --fix",
         "validate": "npm ls",
         "security": "snyk test",

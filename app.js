@@ -2,12 +2,17 @@ const Express = require('express');
 const spdy = require('spdy');
 const http = require('http');
 const {MOVED_PERMANENTLY} = require('./utils/index');
+const fs = require('fs');
 
 // Express servers
 const app = new Express();
 
 const server = spdy.createServer({
-
+    key: fs.readFileSync('openssl/demo-key.pem'),
+    cert: fs.readFileSync('openssl/demo-cert.pem'),
+    ca: fs.readFileSync('openssl/demo-csr.pem'),
+    dhparam: fs.readFileSync('openssl/demo-dh.pem'),
+    secureOptions: 'SSL_OP_NO_SSLv3' | 'SSL_OP_NO_SSLv2',
 }, app);
 
 http.createServer((req, res) => {
