@@ -12,7 +12,8 @@
         "linter-catch": "git add .",
         "migrate": "sequelize db:migrate",
         "unmigrate": "sequelize db:migrate:undo:all",
-        "seed": "sequelize db:seed:all"
+        "seed": "sequelize db:seed:all",
+        "refreshdb": "npm run unmigrate && npm run migrate && npm run seed"
     },
     "author": "Layne Faler",
     "license": "ISC",
