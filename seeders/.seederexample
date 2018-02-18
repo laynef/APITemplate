@@ -1,0 +1,14 @@
+const {} = require('../models/index');
+
+
+module.exports = {
+
+	up : function (queryInterface, Sequelize) {
+
+	},
+
+	down : function (queryInterface, Sequelize) {
+
+	},
+
+};
