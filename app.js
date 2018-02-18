@@ -1,6 +1,7 @@
 const Express = require('express');
 const spdy = require('spdy');
 const http = require('http');
+const path = require('path');
 const {
     MOVED_PERMANENTLY,
     makeGlobalAPILodashFunctions,
@@ -19,7 +20,8 @@ makeGlobalAPILodashFunctions([
 
 // Express servers
 const app = new Express();
-app.set();
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 app.use(middleware);
 app.use(routes);
 
