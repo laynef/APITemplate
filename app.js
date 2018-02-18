@@ -19,6 +19,7 @@ makeGlobalAPILodashFunctions([
 
 // Express servers
 const app = new Express();
+app.set();
 app.use(middleware);
 app.use(routes);
 
