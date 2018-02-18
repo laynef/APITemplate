@@ -2,6 +2,7 @@ const Express = require('express');
 const spdy = require('spdy');
 const http = require('http');
 const path = require('path');
+const favicon = require('serve-favicon');
 const {
     MOVED_PERMANENTLY,
     makeGlobalAPILodashFunctions,
@@ -24,6 +25,7 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(middleware);
 app.use(routes);
+app.use(favicon(path.join(__dirname, 'config', 'favicon.png')));
 
 const server = spdy.createServer({
     key: fs.readFileSync('openssl/demo-key.pem'),
