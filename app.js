@@ -41,5 +41,7 @@ http.createServer((req, res) => {
 server.listen(8443, (error) => {
     if (error) {
         console.error(error);
+    } else {
+        console.log(`Listening on: https://demo.api:8443`);
     }
 });
