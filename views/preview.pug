@@ -1,6 +1,8 @@
 doctype html
 html(lang='en')
     head
-        title='Demo API'
+        title=`Demo API Preview: ${briefError}`
+        style(amp-custom)
+            include preview.css
     body
-        h1='Error Preview'
+        h1=`${status_code} Error Preview: ${briefError}`
