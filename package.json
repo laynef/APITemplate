@@ -13,7 +13,11 @@
         "migrate": "sequelize db:migrate",
         "unmigrate": "sequelize db:migrate:undo:all",
         "seed": "sequelize db:seed:all",
-        "refreshdb": "npm run unmigrate && npm run migrate && npm run seed"
+        "makemodel": "sequelize model:create --name $1 --attributes $2 --underscored --debug",
+        "refreshdb": "npm run unmigrate && npm run migrate && npm run seed",
+        "dropdb": "removedb $1",
+        "createdb": "createdb $1",
+        "freshdb": "npm run dropdb && npm run createdb"
     },
     "author": "Layne Faler",
     "license": "ISC",
