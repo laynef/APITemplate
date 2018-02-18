@@ -1,11 +1,26 @@
 const Express = require('express');
 const spdy = require('spdy');
 const http = require('http');
-const {MOVED_PERMANENTLY} = require('./utils/index');
+const {
+    MOVED_PERMANENTLY,
+    makeGlobalAPILodashFunctions,
+} = require('./utils/index');
 const fs = require('fs');
+const middleware = require('./middleware/index');
+const routes = require('./routes/index');
+
+// global functions
+makeGlobalAPILodashFunctions([
+    'extend',
+    'defaults',
+    'omit',
+    'pick',
+]);
 
 // Express servers
 const app = new Express();
+app.use(middleware);
+app.use(routes);
 
 const server = spdy.createServer({
     key: fs.readFileSync('openssl/demo-key.pem'),
