@@ -5,6 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
+        "dev": "nodemon app.js",
         "test": "node tests/index.js",
         "lint": "eslint -c .eslintrc.js . --fix",
         "validate": "npm ls",
