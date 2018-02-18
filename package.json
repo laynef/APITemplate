@@ -1,5 +1,5 @@
 {
-    "name": "apitemplate",
+    "name": "api-template",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -9,7 +9,10 @@
         "lint": "eslint -c .eslintrc.js . --fix",
         "validate": "npm ls",
         "security": "snyk test",
-        "linter-catch": "git add ."
+        "linter-catch": "git add .",
+        "migrate": "sequelize db:migrate",
+        "unmigrate": "sequelize db:migrate:undo:all",
+        "seed": "sequelize db:seed:all"
     },
     "author": "Layne Faler",
     "license": "ISC",
