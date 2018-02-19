@@ -12,5 +12,14 @@ html(lang='en')
         .p-3
             .card.w-100
                 .card-header
-                    span.h2.text-danger=`${status_code}`
-                        .h2.text-black=`: Route Not Found`
+                    span.h2.text-danger.float-left.mr-1=`${status_code}:`
+                    span.h2.float-left=`Route Not Found`
+                .card-body.p-3
+                    .card.card-outline-secondary
+                        .card-header
+                            h5=`Path: ${path} (${status_message})`
+                        code.card-body
+                            p=`Searched url: ${protocol}://${hostname}${originalUrl}`
+                            p=`Searched protocol: ${protocol}`
+                            p=`Searched host name: ${hostname}`
+                            p=`Searched path: ${path}`
