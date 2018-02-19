@@ -1,8 +1,6 @@
 const connect = require('connect');
 const {...security} = require('./security');
 const {...format} = require('./format');
-
-// Always last
 const {...errorHandling} = require('./errorHandling');
 
 module.exports = (function () {
@@ -11,7 +9,7 @@ module.exports = (function () {
         // list of middleware: order matters
         ...security,
         ...format,
-        ...errorHandling,
+        ...errorHandling, // Always last
     }).forEach(e => {
         chain.use(e);
     });

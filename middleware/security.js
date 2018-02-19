@@ -1,10 +1,9 @@
 const helmet = require('helmet');
+const cors = require('cors');
 
 module.exports = {
 
-    helmet: (req, res, next) => {
-        helmet();
-        next();
-    },
+    helmet: helmet(),
+    cors: cors(),
 
 };
