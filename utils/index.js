@@ -6,6 +6,7 @@ const {...serialize} = require('./serialize');
 const {...queries} = require('./queries');
 const {...errorHandling} = require('./errorHandling');
 const {...responses} = require('./responses');
+const {...validators} = require('./validators');
 
 module.exports = {
     ...httpResponses,
@@ -16,4 +17,5 @@ module.exports = {
     ...queries,
     ...errorHandling,
     ...responses,
+    ...validators,
 };
