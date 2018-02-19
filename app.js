@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Express = require('express');
 const spdy = require('spdy');
 const http = require('http');
@@ -45,7 +46,7 @@ http.createServer((req, res) => {
     res.end();
 }).listen(8080);
 
-server.listen(8443, (error) => {
+server.listen(process.env.PORT || 8443, (error) => {
     if (error) {
         console.error(error);
     } else {
