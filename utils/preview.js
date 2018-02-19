@@ -1,5 +1,3 @@
-const {map} = require('lodash');
-
 module.exports = {
 
     errorPreview: (error, req, res) => {
@@ -21,7 +19,7 @@ module.exports = {
                 },
                 {
                     header: 'Request Headers',
-                    data: map(req.headers, (value, key) => ({
+                    data: global.map(req.headers, (value, key) => ({
                         key: key,
                         value: value,
                         action: 'Header section',
@@ -64,11 +62,11 @@ module.exports = {
                         },
                         {
                             key: 'query',
-                            value: map(query, (e, i) => `${i}: ${e}`).join(', '),
+                            value: global.map(query, (e, i) => `${i}: ${e}`).join(', '),
                         },
                         {
                             key: 'params',
-                            value: map(params, (e, i) => `${i}: ${e}`).join(', '),
+                            value: global.map(params, (e, i) => `${i}: ${e}`).join(', '),
                         },
                     ].map(e => ({...e, action: 'Searched'})),
                 },
