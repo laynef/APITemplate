@@ -10,8 +10,8 @@ var db = {};
 
 var sequelize = null;
 
-if (config.use_env_variable) {
-    sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (config && config.url) {
+    sequelize = new Sequelize(config.url);
 } else {
     sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
