@@ -3,6 +3,6 @@ const router = express.Router();
 const {notfound} = require('../controllers/notfound');
 
 // Declare routes
-router.get('*', notfound);
+router.all('*', notfound);
 
 module.exports = router;
