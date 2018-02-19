@@ -2,11 +2,11 @@ const {map} = require('lodash');
 
 module.exports = {
 
-    errorPreview: (error, req, res, code) => {
+    errorPreview: (error, req, res) => {
         const {protocol, hostname, originalUrl, baseUrl, method, query, params} = req;
-        res.status(code.status_code).render('preview', {
-            status_code: code.status_code,
-            status_message: code.status_meaning,
+        res.status(error.status).render('preview', {
+            status_code: error.status,
+            status_message: error.message,
             header: 'Internal Server Error',
             cardData: [
                 {
