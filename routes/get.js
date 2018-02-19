@@ -1,5 +1,5 @@
 /* eslint-disable */
 const {} = require('../controllers/index');
 module.exports = [
-    { route: '', controller: '' },
+    { route: '', controller: () => {}, description: `` },
 ];

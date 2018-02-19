@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const {notfound} = require('../controllers/notfound');
 const allGets = require('./get');
 const allDeletes = require('./deletes');
 const allPosts = require('./post');
 const allPatches = require('./patch');
+const {docs} = require('../controllers/docs');
 
 // Declare routes
 allGets.forEach(e => {
@@ -27,6 +27,11 @@ allPatches.forEach(e => {
     router.patch(e.route, ...middleware, e.controller);
 });
 
-router.all('*', notfound);
+let all = allGets.map(e => ({...e, method: 'GET'}))
+    .concat(allPosts.map(e => ({...e, method: 'POST'})))
+    .concat(allPatches.map(e => ({...e, method: 'PATCH'})))
+    .concat(allDeletes.map(e => ({...e, method: 'DELETE'})));
+
+router.get('/docs', docs(all));
 
 module.exports = router;
