@@ -21,6 +21,7 @@ makeGlobalAPILodashFunctions([
     'pick',
     'each',
     'map',
+    'size',
 ]);
 
 // Express servers
