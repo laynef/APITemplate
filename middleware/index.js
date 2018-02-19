@@ -5,6 +5,7 @@ const {...errorHandling} = require('./errorHandling');
 const {redisClient, session} = require('./redis');
 
 module.exports = {
+    // For main express app
     app: (function () {
         let chain = connect();
         Object.values({
