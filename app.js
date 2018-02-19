@@ -9,6 +9,7 @@ const {
 const fs = require('fs');
 const middleware = require('./middleware/index');
 const routes = require('./routes/index');
+const { notfound } = require('./controllers/notfound');
 
 // global functions
 makeGlobalAPILodashFunctions([
@@ -24,7 +25,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/favicon', Express.static(path.join(__dirname, 'config', 'favicon.png')));
 app.use(middleware);
-app.use(routes);
+app.use('api', routes);
+app.use('*', notfound);
 
 const server = spdy.createServer({
     key: fs.readFileSync('openssl/demo-key.pem'),

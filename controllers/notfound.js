@@ -7,6 +7,7 @@ module.exports = {
             path: req.path,
             protocol: req.protocol,
             hostname: req.hostname,
+            baseUrl: req.baseUrl,
             originalUrl: req.originalUrl,
             status_message: NOT_FOUND.status_meaning,
         });
