@@ -2,6 +2,7 @@ const connect = require('connect');
 const {...security} = require('./security');
 const {...format} = require('./format');
 const {...errorHandling} = require('./errorHandling');
+const {redisClient, session} = require('./redis');
 
 module.exports = {
     app: (function () {
@@ -9,6 +10,7 @@ module.exports = {
         Object.values({
             // list of middleware: order matters
             ...security,
+            session,
             ...format,
             ...errorHandling, // Always last
         }).forEach(e => {
@@ -16,7 +18,11 @@ module.exports = {
         });
         return chain;
     }()),
+
+    // For reuse
     ...security,
     ...format,
+    redisClient,
+    session,
     ...errorHandling,
 };
