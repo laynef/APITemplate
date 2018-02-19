@@ -4,7 +4,7 @@ const {} = require('../../utils/index');
 
 module.exports = {
 
-    getOne: () => {
+    getOne: (req, res, docs=false) => {
 
     },
 

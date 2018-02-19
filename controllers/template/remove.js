@@ -4,7 +4,7 @@ const {} = require('../../utils/index');
 
 module.exports = {
 
-    remove: () => {
+    remove: (req, res, docs=false) => {
 
     },
 

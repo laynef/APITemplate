@@ -1,27 +1,38 @@
 doctype html
 html(lang='en')
     head
-        title=`Demo API | ${status_code}`
+        title=`Demo API Docs`
         link(type='image/png', rel='shortcut icon', href=`/favicon`)
-        style
-            include styles/bootstrap.css
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
         style
             include styles/header.css
     body
         .header
             h1.h-100.vert-center.text-white.hort-center='API Docs'
-        //- .p-3
-        //-     .card.w-100
-        //-         .card-header
-        //-             span.h2.text-danger.float-left.mr-1=`${status_code}:`
-        //-             span.h2.float-left=`${header}`
-        //-         .card-body.p-3
-        //-             .card-block
-        //-                 p=`Error meaning: ${status_message}`
-        //-             each data in cardData
-        //-                 .card.card-outline-secondary
-        //-                     .card-header
-        //-                         h5=`${data.header}`
-        //-                     code.card-body
-        //-                         each inners in data.data
-        //-                             p=`${inners.action} ${inners.key}: ${inners.value}`
+        .p-3
+            .card.w-100
+                .card-header
+                    h2='Routes Available'
+                .card-body.p-3.w-100
+                    each data in routes
+                        .card.card-outline-secondary.w-100.flex-row
+                            .w-50.p-1
+                                .card-header
+                                    span.mr-1=data.method
+                                    span=data.route
+                                .card-body.p-2
+                                    h6='Middleware Used: '
+                                        ul
+                                            each ware in data.middleware
+                                                li=ware.name
+                                    h6='Description: '
+                                    p=data.description
+                            .w-50.p-1
+                                .card-header
+                                    h5='Sample Data'
+                                .card-body
+                                    code
+                                        span=data.data
+        script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js', integrity='sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n', crossorigin='anonymous')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')

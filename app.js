@@ -3,6 +3,7 @@ const spdy = require('spdy');
 const http = require('http');
 const path = require('path');
 const {
+    OK,
     MOVED_PERMANENTLY,
     makeGlobalAPILodashFunctions,
 } = require('./utils/index');
@@ -27,7 +28,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use('/favicon', Express.static(path.join(__dirname, 'config', 'favicon.png')));
 app.use(middleware.app);
-app.use('api', routes);
+app.get('/', (req, res) => { res.status(OK.status_code).render('index'); });
+app.use('/api', routes);
 app.use('*', notfound);
 
 const server = spdy.createServer({

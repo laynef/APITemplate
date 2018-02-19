@@ -4,7 +4,7 @@ const {} = require('../../utils/index');
 
 module.exports = {
 
-    archive: () => {
+    archive: (req, res, docs=false) => {
 
     },
 

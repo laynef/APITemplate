@@ -4,7 +4,7 @@ const {} = require('../../utils/index');
 
 module.exports = {
 
-    patch: () => {
+    patch: (req, res, docs=false) => {
 
     },
 
