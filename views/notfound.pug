@@ -8,4 +8,9 @@ html(lang='en')
             include styles/header.css
     body
         .header
-            h1.white.text-center.h-50='Express Maid Preview'
+            h1.h-100.vert-center.text-white.hort-center='Express Cleaner Preview'
+        .p-3
+            .card.w-100
+                .card-header
+                    span.h2.text-danger=`${status_code}`
+                        .h2.text-black=`: Route Not Found`
