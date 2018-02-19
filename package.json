@@ -1,11 +1,11 @@
 {
     "name": "api-template",
     "version": "1.0.0",
-    "description": "",
+    "description": "Node API Boilerplate",
     "main": "app.js",
     "scripts": {
-        "start": "node app.js",
-        "dev": "nodemon app.js",
+        "start": "node -r dotenv/config app.js",
+        "dev": "nodemon -r dotenv/config app.js",
         "test": "node tests/index.js",
         "lint": "eslint -c .eslintrc.js . --fix",
         "validate": "npm ls",
@@ -20,6 +20,10 @@
         "createdb": "createdb $1",
         "freshdb": "npm run dropdb && npm run createdb"
     },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/laynef/APITemplate.git"
+      },
     "author": "Layne Faler",
     "license": "ISC",
     "devDependencies": {
