@@ -1,9 +1,27 @@
 doctype html
 html(lang='en')
     head
+        title=`Demo API | ${status_code}`
         link(type='image/png', rel='shortcut icon', href=`/favicon`)
-        title=`Demo API Preview: ${briefError}`
-        style(amp-custom)
-            include preview.css
+        style
+            include styles/bootstrap.css
+        style
+            include styles/header.css
     body
-        h1=`${status_code} Error Preview: ${briefError}`
+        .header
+            h1.h-100.vert-center.text-white.hort-center='Express Cleaner Preview'
+        .p-3
+            .card.w-100
+                .card-header
+                    span.h2.text-danger.float-left.mr-1=`${status_code}:`
+                    span.h2.float-left=`${header}`
+                .card-body.p-3
+                    .card-block
+                        p=`Error meaning: ${status_message}`
+                    each data in cardData
+                        .card.card-outline-secondary
+                            .card-header
+                                h5=`${data.header}`
+                            code.card-body
+                                each inners in data.data
+                                    p=`${inners.action} ${inners.key}: ${inners.value}`

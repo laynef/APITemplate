@@ -3,13 +3,13 @@ const {NOT_FOUND} = require('../utils/index');
 module.exports = {
     notfound: (req, res) => {
         const {protocol, hostname, originalUrl, baseUrl} = req;
-        res.status(NOT_FOUND.status_code).render('notfound', {
+        res.status(NOT_FOUND.status_code).render('preview', {
             status_code: NOT_FOUND.status_code,
             status_message: NOT_FOUND.status_meaning,
             header: 'Route Not Found',
             cardData: [
                 {
-                    header: 'Meaning: ' + NOT_FOUND.status_meaning,
+                    header: 'Route Not Found',
                     data: [
                         {
                             key: 'url',
