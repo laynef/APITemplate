@@ -5,6 +5,7 @@ const client = redis.createClient(process.env.REDIS_URL || 'redis://localhost:63
 
 module.exports = {
 
+    redisClient: client,
     session: sess({
         secret: 'secret',
         store: new RedisStore({ client: client, disableTTL: true }),
