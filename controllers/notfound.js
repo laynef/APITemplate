@@ -9,7 +9,7 @@ module.exports = {
             header: 'Route Not Found',
             cardData: [
                 {
-                    header: `Path: ${req.path} (${NOT_FOUND.status_meaning})`,
+                    header: 'Meaning: ' + NOT_FOUND.status_meaning,
                     data: [
                         {
                             key: 'url',
